@@ -3,7 +3,7 @@ from pathlib import Path
 from datasets import Dataset
 from dotenv import load_dotenv
 from ragas import evaluate, RunConfig
-from ragas.metrics import faithfulness, answer_relevancy, context_recall, context_precision
+from ragas.metrics import faithfulness, answer_relevancy, context_recall, context_precision, answer_similarity
 
 from src.ground_truth import GroundTruthProvider
 from src.mock_rag import MockRag
@@ -28,11 +28,11 @@ def main():
 
     result = evaluate(
         dataset=Dataset.from_dict(eval_dataset),
-        metrics=[context_precision, context_recall, faithfulness, answer_relevancy],
-        run_config=RunConfig(max_workers=1, max_retries=1)
+        metrics=[context_precision, context_recall, faithfulness, answer_relevancy, answer_similarity]
     )
 
-    print(result)
+    df = result.to_pandas()
+    df.to_csv("./eval_metrics.csv")
 
 
 if __name__ == "__main__":
