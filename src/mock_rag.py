@@ -27,6 +27,6 @@ class MockRag:
     
     @staticmethod
     def _get_similarity_score(text_1: str, text_2: str) -> int:
-        line_tokens = set(text_1.split())
-        prompt_tokens = set(text_2.split())
+        prompt_tokens = set(text_1.lower().split())
+        line_tokens = set(text_2.lower().split())
         return len(prompt_tokens.intersection(line_tokens))
