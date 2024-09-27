@@ -31,6 +31,9 @@ that case:
 2. Second, we will pass these retrieved documents as context to a text generator LLM get answers based 
 on local collection of PDFs'.
 
+**Note:** In this repo we have Mocked the Retrival and Generative part using a simple text similarity algorithm, 
+which might skew the numbers in our favour. But for real world scenarios the picture might be very different.
+
 ## How do we gauge the accuracy for a given RAG?
 There are a couple of ways to determine the correctness of a given RAG such as: RAG triad of metrics, ROUGE, 
 ARES, BLUE and RAGA to name a few and each one of them have their respective strong points, like:
