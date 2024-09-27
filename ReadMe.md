@@ -1,6 +1,8 @@
 # rag-eval
 A basic Python project to evaluate the Retrieval-Augmented Generation metrics.
 
+![eval output](./assets/output.png)
+
 # How to run
 ```shell
 # Create a virtual env from Python 3.12
